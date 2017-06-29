@@ -16,7 +16,7 @@ Lua source integration for UE4.
 
 ## 编译问题 ##
 
-### 编译 Android 时出现 'struct lconv' has no member named 'decimal_point' 错误 ###
+### 编译 Android 时出现 no member named decimal_point in struct lconv 错误 ###
 
 需要在 `luaconf.h` 头文件中在以下代码之前
 
