@@ -241,18 +241,38 @@
 ** the libraries, you may want to use the following definition (define
 ** LUA_BUILD_AS_DLL to get it).
 */
-#if defined(LUA_BUILD_AS_DLL)	/* { */
 
+#if defined(LUAMODULE_API)	/* { */
+
+#if PLATFORM_WINDOWS
 #if defined(LUA_CORE) || defined(LUA_LIB)	/* { */
 #define LUA_API __declspec(dllexport)
 #else						/* }{ */
 #define LUA_API __declspec(dllimport)
-#endif						/* } */
+#endif	
 
-#else				/* }{ */
+#elif PLATFORM_LINUX
 
+#if defined(LUA_CORE) || defined(LUA_LIB)	/* { */
+#define LUA_API __attribute__((visibility("default")))
+#else						/* }{ */
+#define LUA_API __attribute__((visibility("default")))
+#endif	
+
+#elif PLATFORM_ANDROID
+
+#if defined(LUA_CORE) || defined(LUA_LIB)	/* { */
+#define LUA_API __attribute__((visibility("default")))
+#else						/* }{ */
+#define LUA_API __attribute__((visibility("default")))
+#endif	
+
+#else
 #define LUA_API		extern
+#endif
 
+#else
+#define LUA_API		extern
 #endif				/* } */
 
 
