@@ -266,7 +266,6 @@
 #define LUA_API		extern
 #endif				/* } */
 
-
 /* more often than not the libs go together with the core */
 #define LUALIB_API	LUA_API
 #define LUAMOD_API	LUALIB_API
@@ -680,12 +679,9 @@
 ** Change that if you do not want to use C locales. (Code using this
 ** macro must include header 'locale.h'.)
 */
-#if defined(ANDROID)
-#define lua_getlocaledecpoint() ('.')
-#endif
-
 #if !defined(lua_getlocaledecpoint)
-#define lua_getlocaledecpoint()		(localeconv()->decimal_point[0])
+//#define lua_getlocaledecpoint()		(localeconv()->decimal_point[0])
+#define lua_getlocaledecpoint() ('.')
 #endif
 
 /* }================================================================== */

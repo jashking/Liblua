@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class LuaModule : ModuleRules
+public class Liblua : ModuleRules
 {
-	public LuaModule(ReadOnlyTargetRules Target) : base(Target)
+	public Liblua(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
@@ -14,5 +14,7 @@ public class LuaModule : ModuleRules
 
 		bEnableShadowVariableWarnings = false;
 		bEnableUndefinedIdentifierWarnings = false;
+
+		PublicDefinitions.Add("WITH_LIBLUA=1");
 	}
 }
